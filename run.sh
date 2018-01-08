@@ -41,5 +41,4 @@ $(echo $docker_run_cmd) \
     -v $HOME/.Xauthority:$home_folder/.Xauthority \
     -e XAUTHORITY=$home_folder/.Xauthority \
     -v $HOME/Downloads/cpp_tdd_book_src_code:$home_folder/book_src_code \
-    -e ROS_HOSTNAME=$THIS_HOST \
     -it $IMAGE_NAME "$@"
