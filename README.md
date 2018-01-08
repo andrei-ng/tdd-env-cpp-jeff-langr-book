@@ -43,3 +43,18 @@ Download the book's [source code](https://pragprog.com/titles/lotdd/source_code)
     -v $HOME/Downloads/cpp_tdd_book_src_code:$home_folder/book_src_code \
 ```
 to reflect your own location.
+
+#### When the builds fail ...
+
+In my case, even with the setup of this docker image, none of the examples could be built. What solved it for me, for e.g. for the Chapter 2 samples, was to revert the linking order in the `CMakeLists.txt` and place the `gmock` and `gtest` libraries before the `pthread` library, i.e.,
+```
+set(sources 
+   main.cpp 
+   SoundexTest.cpp)
+add_executable(test ${sources})
+
+target_link_libraries(test gmock)
+target_link_libraries(test gtest)
+target_link_libraries(test pthread)
+
+```
