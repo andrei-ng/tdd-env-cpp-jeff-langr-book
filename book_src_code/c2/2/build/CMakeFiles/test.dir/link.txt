@@ -1,0 +1,1 @@
+/usr/bin/c++    -Wall   CMakeFiles/test.dir/main.cpp.o CMakeFiles/test.dir/SoundexTest.cpp.o  -o test  -L/home/docker/packages/gmock-1.6.0/mybuild  -L/home/docker/packages/gmock-1.6.0/gtest/mybuild -rdynamic -lgmock -lgtest -lpthread -Wl,-rpath,/home/docker/packages/gmock-1.6.0/mybuild:/home/docker/packages/gmock-1.6.0/gtest/mybuild 
