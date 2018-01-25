@@ -121,8 +121,6 @@ VOLUME /extern
 
 # Make SSH available
 EXPOSE 22
-# Expose Gazebo port
-EXPOSE 11345
 
 # This is required for sharing Xauthority
 ENV QT_X11_NO_MITSHM=1
