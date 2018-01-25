@@ -30,7 +30,6 @@ else
 fi
 
 SRC_CODE_DIR="$(pwd)/../book_src_code"
-echo $SRC_CODE_DIR
 
 # Run the container with NVIDIA Graphics acceleration, shared network interface, shared hostname, shared X11
 $(echo $docker_run_cmd) \
