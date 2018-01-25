@@ -20,7 +20,7 @@ If your machine has a NVIDIA Video card, to successfully run OpenGL dependent GU
 
 ### Building the image
 
-The [Makefile](Makefile) contained in the repository allows you to create docker images for the target platform you are interested in NVIDIA/nonNVIDIA. In a terminal type `make` followed by a `<TAB>` to see the available auto-complete options. 
+The [Makefile](./docker/Makefile) contained in the repository allows you to create docker images for the target platform you are interested in NVIDIA/nonNVIDIA. In a terminal type `make` followed by a `<TAB>` to see the available auto-complete options. 
 ```
 make <TAB>
 ```
@@ -35,7 +35,7 @@ command, after you have build it with the `make` instruction.
 You could also change the names in the `Makefile`. However, make sure you do not break the dependencies between the two images as the second image (for NVIDIA platform) depends on the first. 
 
 #### The ENTRYPOINT `entrypoint.sh` script
-For each image type, the bash script [entrypoint.sh](./entrypoint.sh) will be copied at build time into the Docker image and will be ran as the default _entrypoint_ when the container is launched. 
+For each image type, the bash script [entrypoint.sh](./docker/entrypoint.sh) will be copied at build time into the Docker image and will be ran as the default _entrypoint_ when the container is launched. 
 
 The current entrypoint script is customized for the use case where the host's QT Creator folder is mounted into the container at `$HOME/Qt` folder of the `non-root` user. 
 
@@ -43,7 +43,7 @@ The script creates an alias for the QT Creator's executable so it can be launche
 
 ### Running a container
 
-In the terminal call the [./run_docker.sh](./run_docker.sh) script from the [docker](./docker) folder with the default given name or the name. The script will perform some Docker environment variables setting and volume mounting and set other docker flags, e.g., remove the container upon exit (i.e., it is ran with the `--rm` flag).
+In the terminal call the [./run_docker.sh](./docker/run_docker.sh) script from the [docker](./docker) folder with the default given name or the name. The script will perform some Docker environment variables setting and volume mounting and set other docker flags, e.g., remove the container upon exit (i.e., it is ran with the `--rm` flag).
 
 ```
 ./run_docker.sh IMAGE_NAME
@@ -79,7 +79,7 @@ target_link_libraries(test pthread)
 
 ### Bash auto-completion for `./run_docker.sh`
 
-When using `./run_docker.sh` in a bash shell to launch the container, source the [configs/bash_docker_images_completion.sh](./configs/bash_docker_images_completion.sh) script. Now you should be able to get the names of the available docker images on your system whenever you type 
+When using `./run_docker.sh` in a bash shell to launch the container, source the [configs/bash_docker_images_completion.sh](./docker/configs/bash_docker_images_completion.sh) script. Now you should be able to get the names of the available docker images on your system whenever you type 
 ```
 ./run_docker.sh <TAB><TAB>
 ```
