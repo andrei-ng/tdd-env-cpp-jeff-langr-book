@@ -1,2 +1,6 @@
 # Ignore the following files
 *.~
+
+# CMake/QT user files
+*.txt.user
+book_src_code/*/*/build/*
