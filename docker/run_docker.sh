@@ -29,7 +29,7 @@ else
     dHOME_FOLDER="/home/$docker_user"    
 fi
 
-SRC_CODE_DIR="$(pwd)/../../book_src_code"
+SRC_CODE_DIR="$(pwd)/../book_src_code"
 echo $SRC_CODE_DIR
 
 # Run the container with NVIDIA Graphics acceleration, shared network interface, shared hostname, shared X11
@@ -44,5 +44,5 @@ $(echo $docker_run_cmd) \
   -v $HOME/.gitconfig:$dHOME_FOLDER/.gitconfig \
   -v $SRC_CODE_DIR:$dHOME_FOLDER/book_src_code \
   -v $HOME/SoftwareTools/Qt:/$dHOME_FOLDER/Qt \
-  -v $HOME/SoftwareTools/Qt:/$dHOME_FOLDER/Qt \
+  -v $HOME/.config/QtProject/:/$dHOME_FOLDER/.config/QtProject/ \
   -it $IMAGE_NAME "$@"

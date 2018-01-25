@@ -7,8 +7,8 @@ help: ## This help.
 
 # DOCKER TASKS
 xenial-cpp-env-tdd-book: ## Build Custom Xenial Enviroment with exactly same book libraries | (non NVIDIA)
-	cd generic-card; ./build.sh codookie/xenial:cpp-env-tdd-book
+	./build.sh generic-card codookie/xenial:cpp-env-tdd-book
 	@printf "\n\033[92mDocker Image: codookie/xenial:cpp-env-tdd-book\033[0m\n"
 xenial-cpp-env-tdd-book-nvidia: xenial-cpp-env-tdd-book ## Build Custom Xenial Enviroment with exactly same book libraries | (for NVIDIA & OpenGL)
-	docker build -t codookie/xenial:cpp-env-tdd-book-nvidia nvidia-opengl
+	./build.sh nvidia-opengl codookie/xenial:cpp-env-tdd-book-nvidia
 	@printf "\n\033[92mDocker Image: codookie/xenial:cpp-env-tdd-book-nvidia\033[0m\n"
