@@ -31,7 +31,7 @@ docker build \
 # Clean up
 # Remove configs folder
 rm -rf $TARGET_PLATFORM_NAME/configs
-# Remoe book libraries
+# Remove book libraries
 rm -rf $TARGET_PLATFORM_NAME/book_libs
 # Remove copied script
 rm -rf $TARGET_PLATFORM_NAME/entrypoint.sh
