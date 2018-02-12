@@ -58,17 +58,6 @@ RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -
  && ln -s $HOME/.oh-my-zsh/custom/pure/async.zsh $HOME/.oh-my-zsh/custom/ \
  && sed -i -e 's/robbyrussell/refined/g' $HOME/.zshrc
 
-# Copy Terminator Configuration file
-# '$HOME' does not seem to work with the COPY directive
-RUN mkdir -p $HOME/.config/terminator/
-COPY configs/terminator_config /home/${user}/.config/terminator/config
-COPY configs/bash_aliases /home/${user}/.bash_aliases
-COPY entrypoint.sh /home/${user}/entrypoint.sh
-RUN sudo chmod +x /home/${user}/entrypoint.sh \
- && sudo chown ${user}:${user} /home/${user}/entrypoint.sh \
-  	/home/${user}/.config/terminator/config \
-  	 /home/${user}/.bash_aliases
-
 # ==================================== Copy & Make packages required by book examples ==================================== 
 # Note that these packages are old compared with the current version, but in order to follow with the book examples
 # it is easier to use these packages rather than to fix dependencies for newer versions
@@ -115,6 +104,18 @@ ENV BOOST_ROOT /home/${user}/packages/boost_1_53_0
 ENV BOOST_VERSION 1.53.0
 RUN cd $HOME/packages && tar -xpzf boost_1_53_0.tar.gz && \
 	cd $BOOST_ROOT && ./bootstrap.sh --with-libraries=filesystem,system && ./b2
+
+
+# Copy Terminator Configuration file
+# '$HOME' does not seem to work with the COPY directive
+RUN mkdir -p $HOME/.config/terminator/
+COPY configs/terminator_config /home/${user}/.config/terminator/config
+COPY configs/bash_aliases /home/${user}/.bash_aliases
+COPY entrypoint.sh /home/${user}/entrypoint.sh
+RUN sudo chmod +x /home/${user}/entrypoint.sh \
+ && sudo chown ${user}:${user} /home/${user}/entrypoint.sh \
+    /home/${user}/.config/terminator/config \
+     /home/${user}/.bash_aliases
 
 # Create a mount point to bind host data to
 VOLUME /extern

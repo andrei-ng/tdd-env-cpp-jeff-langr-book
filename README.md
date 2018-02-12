@@ -1,6 +1,6 @@
 ## Purpose
 
-Docker image with development tools required for running the code samples from _Modern C++ Programming with Test-Driven Development (Code Better, Sleep Better)_ by Jeff Langr.
+Docker image with development tools required for running the code samples from [Modern C++ Programming with Test-Driven Development (Code Better, Sleep Better) by Jeff Langr](https://pragprog.com/book/lotdd/modern-c-programming-with-test-driven-development).
 
 For details about the tools (and configuration) required to run the book's examples source code, read _Chapter 1: Global Setup_.
 
@@ -53,14 +53,11 @@ The script checks for the existence and the version of `nvidia-docker` and calls
 
 ### Book source code
 
-This repository already contains a copy of the [book's source code](https://pragprog.com/titles/lotdd/source_code) in the directory [book_src_code](./book_src_code). This is mounted in the Docker container for you. 
-
-However, if you wish to download a more recent version of the source code, downlaod it from [sources](https://pragprog.com/titles/lotdd/source_code) to a folder of your choice and change the docker volume mount command in the `run_docker.sh` script to something like
+Download the book's source code from the [original source](https://pragprog.com/titles/lotdd/source_code) to a folder of your choice and change/add the docker volume mount command in the `run_docker.sh` script to something like
 ```
-    -v $HOME/Downloads/cpp_tdd_book_src_code:$dHOME_FOLDER/book_src_code \
+-v $HOME/Downloads/cpp_tdd_book_src_code:$dHOME_FOLDER/book_src_code \
 ```
-to reflect your own source path.
-
+to reflect your own source path. 
 
 #### When the builds fail ...
 
